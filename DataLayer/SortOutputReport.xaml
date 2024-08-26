@@ -1,0 +1,209 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="SortOutputReport" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>870,3142</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>SortOutputReport_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Sorts the following sheets:&#xA;-Carturesti by ascendant Price&#xA;-eMAg by descendent ovr review&#xA;-Best Picks by descendent Price diffrence" DisplayName="SortOutputReport" sap:VirtualizedContainerService.HintSize="750,3077" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message Sorting Output Report" sap:VirtualizedContainerService.HintSize="688,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Sorting Output Report has started.&quot;]" />
+    <Sequence DisplayName="Sort Carturesti Sheet" sap:VirtualizedContainerService.HintSize="688,664" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="sd:DataTable" Name="dtCarturesti" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log Message - Sort Carturesti Sheet" sap:VirtualizedContainerService.HintSize="388,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Sorting Carturesti Sheet..&quot;]" />
+      <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtCarturesti]" DisplayName="Read Carturesti Sheet" sap:VirtualizedContainerService.HintSize="388,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[in_Config(&quot;Carturesti_Sheet&quot;).ToString]" WorkbookPath="[String.Format(in_Config(&quot;OutputReportPath&quot;).ToString, Date.Today.ToString(&quot;dd-MM-yyyy&quot;))]" />
+      <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="[in_Config(&quot;Carturesti_SortByColumn&quot;).ToString]" DataTable="[dtCarturesti]" DisplayName="Sort Carturesti Data Table" sap:VirtualizedContainerService.HintSize="388,112" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Ascending" OutputDataTable="[dtCarturesti]" SortOrder="Ascending" />
+      <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dtCarturesti]" DisplayName="Write Sorted Data Table to Carturesti Sheet" sap:VirtualizedContainerService.HintSize="388,139" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[in_Config(&quot;Carturesti_Sheet&quot;).ToString]" WorkbookPath="[String.Format(in_Config(&quot;OutputReportPath&quot;).ToString, Date.Today.ToString(&quot;dd-MM-yyyy&quot;))]" />
+    </Sequence>
+    <Sequence DisplayName="Sort eMAG Sheet" sap:VirtualizedContainerService.HintSize="688,2032" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="sd:DataTable" Name="dteMAG" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log Message - sort eMAG Sheet" sap:VirtualizedContainerService.HintSize="626,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Sorting eMAG Sheet..&quot;]" />
+      <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dteMAG]" DisplayName="Read eMAG Sheet" sap:VirtualizedContainerService.HintSize="626,120" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="[in_Config(&quot;eMAG_Sheet&quot;).ToString]" WorkbookPath="[String.Format(in_Config(&quot;OutputReportPath&quot;).ToString, Date.Today.ToString(&quot;dd-MM-yyyy&quot;))]" />
+      <ui:AddDataColumn x:TypeArguments="x:Double" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" sap2010:Annotation.AnnotationText="We need this column to sort the sheet, because not all books have reviews." ColumnName="SortHelper" DataTable="[dteMAG]" DefaultValue="-1" DisplayName="Add Helper Column to eMAg Data Table" sap:VirtualizedContainerService.HintSize="626,260" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_3">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:AddDataColumn>
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dteMAG]" DisplayName="For Each Row in eMAG Data Table" sap:VirtualizedContainerService.HintSize="626,890" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+        <ui:ForEachRow.Body>
+          <ActivityAction x:TypeArguments="sd:DataRow">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Verify if current row has reviews" sap:VirtualizedContainerService.HintSize="592,694" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If Condition="[CurrentRow(in_Config(&quot;eMAg_SortByColumn&quot;).ToString).ToString.Equals(&quot;N/A&quot;)]" DisplayName="If current row has reviews" sap:VirtualizedContainerService.HintSize="530,606" sap2010:WorkflowViewState.IdRef="If_1">
+                <If.Then>
+                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,252" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message - Current Book has no reviews" sap:VirtualizedContainerService.HintSize="354,164" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[&quot;Curernt book has no reviews.&quot;]" />
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign DisplayName="Assign Value to Helper Column" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_1">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Object">[CurrentRow("SortHelper")]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Object">[CDbl(CurrentRow(in_Config("eMAg_SortByColumn").ToString))]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEachRow.Body>
+      </ui:ForEachRow>
+      <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="SortHelper" DataTable="[dteMAG]" DisplayName="Sort eMAG Data Table" sap:VirtualizedContainerService.HintSize="626,112" sap2010:WorkflowViewState.IdRef="SortDataTable_2" Order="Decending" OutputDataTable="[dteMAG]" SortOrder="Descending" />
+      <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="SortHelper" DataTable="[dteMAG]" DisplayName="Remove Sorting Column " sap:VirtualizedContainerService.HintSize="626,218" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_1" />
+      <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dteMAG]" DisplayName="Write Sorted Data Table To eMAG Sheet" sap:VirtualizedContainerService.HintSize="626,139" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="[in_Config(&quot;eMAG_Sheet&quot;).ToString]" WorkbookPath="[String.Format(in_Config(&quot;OutputReportPath&quot;).ToString, Date.Today.ToString(&quot;dd-MM-yyyy&quot;))]" />
+    </Sequence>
+    <Sequence DisplayName="Sort Best Picks Sheet" sap:VirtualizedContainerService.HintSize="688,48" sap2010:WorkflowViewState.IdRef="Sequence_7">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="sd:DataTable" Name="dtBestPicks" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log Message Sort Best Picks Sheet" sap:VirtualizedContainerService.HintSize="388,173" sap2010:WorkflowViewState.IdRef="LogMessage_5" Message="[&quot;Sorting Best Picks Sheet..&quot;]" />
+      <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtBestPicks]" DisplayName="Read Best Picks Sheet" sap:VirtualizedContainerService.HintSize="388,120" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="[in_Config(&quot;BestPicks_Sheet&quot;).ToString]" WorkbookPath="[String.Format(in_Config(&quot;OutputReportPath&quot;).ToString, Date.Today.ToString(&quot;dd-MM-yyyy&quot;))]" />
+      <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="[in_Config(&quot;BestPicks_SortByColumn&quot;).ToString]" DataTable="[dtBestPicks]" DisplayName="Sort Best Picks Data Table" sap:VirtualizedContainerService.HintSize="388,112" sap2010:WorkflowViewState.IdRef="SortDataTable_3" Order="Decending" OutputDataTable="[dtBestPicks]" SortOrder="Descending" />
+      <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dtBestPicks]" DisplayName="Write Best Picks DataTable to BestPicks Sheet" sap:VirtualizedContainerService.HintSize="388,139" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="[in_Config(&quot;BestPicks_Sheet&quot;).ToString]" WorkbookPath="[String.Format(in_Config(&quot;OutputReportPath&quot;).ToString, Date.Today.ToString(&quot;dd-MM-yyyy&quot;))]" />
+    </Sequence>
+  </Sequence>
+</Activity>

@@ -12,6 +12,10 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "dtBestPicks&StateMachine_1",
+        "dtBEBooks&StateMachine_1",
+        "dteMAGBooks&StateMachine_1",
+        "dtCarturestiBooks&StateMachine_1",
         "TransactionItem&StateMachine_1",
         "SystemException&StateMachine_1",
         "BusinessException&StateMachine_1",
@@ -28,6 +32,251 @@
       "ArgumentsSectionElementsOrder": [
         "in_OrchestratorQueueName",
         "in_OrchestratorQueueFolder"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/InitAllApplications.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "out_dtBestPicks",
+        "out_dtBEBooks",
+        "out_dteMAGBooks",
+        "out_dtCarturestiBooks",
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "DataLayer/CreateOutputReport.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "out_dtBestPicks",
+        "out_dtCarturesti",
+        "out_dteMAG",
+        "in_Config",
+        "out_dtBE"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/TestCase_CreateOutputReport.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "exists&Sequence_4",
+        "Config&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/InitAllApplicationsTestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Config&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "DataLayer/VerifyIfPriceExceeds.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config",
+        "in_TransactionItem"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/SetTransactionStatus.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "QueueRetry&Sequence_17",
+        "ScreenshotPath&Sequence_17"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "io_dtBEBooks",
+        "io_dteMAGBooks",
+        "io_dtCarturestiBooks",
+        "in_BusinessException",
+        "in_TransactionField1",
+        "in_TransactionField2",
+        "in_TransactionID",
+        "in_SystemException",
+        "in_Config",
+        "in_TransactionItem",
+        "io_RetryNumber",
+        "io_TransactionNumber",
+        "io_ConsecutiveSystemExceptions"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "DataLayer/UpdateOutputReport.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dataFromQueue&Sequence_3",
+        "dataFromQueue&Sequence_2",
+        "dataFromQueue&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "io_dtBEBooks",
+        "io_dteMAGBooks",
+        "io_dtCarturestiBooks",
+        "in_BusinessException",
+        "in_Config",
+        "in_TransactionItem"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/Process.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_TransactionItem",
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/GetTransactionData.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_TransactionNumber",
+        "in_Config",
+        "out_TransactionItem",
+        "out_TransactionField1",
+        "out_TransactionField2",
+        "out_TransactionID",
+        "io_dt_TransactionData"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "DataLayer/VerifyCommonBooks.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "carturestiTitleAuthor&Sequence_2",
+        "listOfBestPicksData&Sequence_3",
+        "eMAGTitleAuthor&Sequence_3"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config",
+        "in_BestPicksBooks",
+        "in_dteMAGBooks",
+        "in_dtCarturestiBooks"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "ServiceLayer/Outlook_SendFinalEmail.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "DataLayer/SortOutputReport.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dtCarturesti&Sequence_2",
+        "dteMAG&Sequence_3",
+        "dtBestPicks&Sequence_7"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/TestCase_Outlook_SendFinalEmail.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "config&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/TestCase_SortOutputReport.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "config&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "DataLayer/DeleteDeletedQueueItems.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "queueItems&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "DataLayer/IfBooksMatch.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_CarturestiDataRow",
+        "in_eMAGDataRow",
+        "in_Config",
+        "out_ListOfBestPicksData"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/TestCase_VerifyCommonBooks.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dtBestPicks&Sequence_1",
+        "dtBE&Sequence_1",
+        "dteMAG&Sequence_1",
+        "dtCarturesti&Sequence_1",
+        "config&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/InitAllSettings.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_SettingsAndConstants&Sequence_5",
+        "dt_Assets&Sequence_6",
+        "AssetValue&Sequence_11"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigFile",
+        "in_ConfigSheets",
+        "out_Config"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
