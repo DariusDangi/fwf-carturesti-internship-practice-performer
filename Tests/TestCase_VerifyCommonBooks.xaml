@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="TestCase_VerifyCommonBooks" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="870,1549" sap2010:WorkflowViewState.IdRef="TestCase_VerifyCommonBooks_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="TestCase_VerifyCommonBooks" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1056,1698" sap2010:WorkflowViewState.IdRef="TestCase_VerifyCommonBooks_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -86,7 +86,7 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TestCase_VerifyCommonBooks" sap:VirtualizedContainerService.HintSize="512,1484" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TestCase_VerifyCommonBooks" sap:VirtualizedContainerService.HintSize="512,1633" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="config" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtCarturesti" />
@@ -121,8 +121,8 @@
           <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtBestPicks">[dtBestPicks]</OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Dangiurus&quot;,&quot;Darius&quot;,&quot;19.29&quot;,&quot;Romana&quot;,&quot;123&quot;}]" DataTable="[dtCarturesti]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
-      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Dangiurus&quot;,&quot;Darius&quot;,&quot;4.00&quot;, &quot;3&quot;,&quot;20.75&quot;}]" DataTable="[dteMAG]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="388,209" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Dangiurus&quot;,&quot;Darius&quot;,&quot;19.29&quot;,&quot;Romana&quot;,&quot;123&quot;}]" DataTable="[dtCarturesti]" DisplayName="Add mock data row to dtCarturesti" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Dangiurus&quot;,&quot;Darius&quot;,&quot;4.00&quot;, &quot;3&quot;,&quot;20.75&quot;}]" DataTable="[dteMAG]" DisplayName="Add mock Data Row to dteMAG" sap:VirtualizedContainerService.HintSize="388,209" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
     </Sequence>
     <Sequence DisplayName="... When" sap:VirtualizedContainerService.HintSize="450,315" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
@@ -139,12 +139,13 @@
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Sequence>
-    <Sequence DisplayName="... Then" sap:VirtualizedContainerService.HintSize="450,126" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence DisplayName="... Then" sap:VirtualizedContainerService.HintSize="450,275" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log Message - TestCase_VerifyCommonBooks done" sap:VirtualizedContainerService.HintSize="388,164" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;TestCase_VerifyCommonBooks finished running.&quot;]" />
     </Sequence>
   </Sequence>
 </Activity>

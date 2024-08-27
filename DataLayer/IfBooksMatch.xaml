@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>870,1219</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1056,1446</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>IfBooksMatch_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -106,7 +106,7 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This workflow will be executed when a book from eMAG and a book from Carturesti will match. If so, it will be added to Best Picks data Table." DisplayName="IfBooksMatch" sap:VirtualizedContainerService.HintSize="668,1154" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow will be executed when a book from eMAG and a book from Carturesti will match. If so, it will be added to Best Picks data Table." DisplayName="IfBooksMatch" sap:VirtualizedContainerService.HintSize="668,1381" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -122,34 +122,35 @@
         <InArgument x:TypeArguments="scg:List(x:String)">[new List(of String)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Column in Best Picks" sap:VirtualizedContainerService.HintSize="606,573" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_Config(&quot;BestPicks_Columns&quot;).ToString.Split(&quot;,&quot;c).Take(in_Config(&quot;BestPicks_Columns&quot;).ToString.Split(&quot;,&quot;c).Length - 3)]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Column in Best Picks" sap:VirtualizedContainerService.HintSize="606,800" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_Config(&quot;BestPicks_Columns&quot;).ToString.Split(&quot;,&quot;c).Take(in_Config(&quot;BestPicks_Columns&quot;).ToString.Split(&quot;,&quot;c).Length - 3)]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="currentColumn" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Verify if currentColumn is part of Carturesti or eMAG Data Table" sap:VirtualizedContainerService.HintSize="572,427" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Verify if currentColumn is part of Carturesti or eMAG Data Table" sap:VirtualizedContainerService.HintSize="572,654" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:IfElseIfV2 Condition="[in_CarturestiDataRow.Table.Columns.Contains(currentColumn)]" DisplayName="Verify if currentColumn is part of Carturesti DataTable" sap:VirtualizedContainerService.HintSize="510,339" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
+            <ui:IfElseIfV2 Condition="[in_CarturestiDataRow.Table.Columns.Contains(currentColumn)]" DisplayName="Verify if currentColumn is part of Carturesti DataTable" sap:VirtualizedContainerService.HintSize="510,566" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
               <ui:IfElseIfV2.Else>
-                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,252" sap2010:WorkflowViewState.IdRef="Sequence_6">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - Error, Unrecognized column" sap:VirtualizedContainerService.HintSize="354,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Error, unrecognized column: &quot; + currentColumn]" />
                 </Sequence>
               </ui:IfElseIfV2.Else>
               <ui:IfElseIfV2.ElseIfs>
                 <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
                   <ui:IfElseIfBlock BlockType="ElseIf" Condition="[in_eMAGDataRow.Table.Columns.Contains(currentColumn)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
                     <ui:IfElseIfBlock.Then>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <Sequence DisplayName="Add currentColumn to outputList" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_7">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>

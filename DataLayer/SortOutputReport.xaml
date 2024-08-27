@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>870,3142</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1056,1556</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SortOutputReport_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -99,15 +99,15 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Sorts the following sheets:&#xA;-Carturesti by ascendant Price&#xA;-eMAg by descendent ovr review&#xA;-Best Picks by descendent Price diffrence" DisplayName="SortOutputReport" sap:VirtualizedContainerService.HintSize="750,3077" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Sorts the following sheets:&#xA;-Carturesti by ascendant Price&#xA;-eMAg by descendent ovr review&#xA;-Best Picks by descendent Price diffrence" DisplayName="SortOutputReport" sap:VirtualizedContainerService.HintSize="654,1491" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Sorting Output Report" sap:VirtualizedContainerService.HintSize="688,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Sorting Output Report has started.&quot;]" />
-    <Sequence DisplayName="Sort Carturesti Sheet" sap:VirtualizedContainerService.HintSize="688,664" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <ui:LogMessage DisplayName="Log Message Sorting Output Report" sap:VirtualizedContainerService.HintSize="592,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Sorting Output Report has started.&quot;]" />
+    <Sequence DisplayName="Sort Carturesti Sheet" sap:VirtualizedContainerService.HintSize="592,1053" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="dtCarturesti" />
       </Sequence.Variables>
@@ -117,24 +117,48 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:LogMessage DisplayName="Log Message - Sort Carturesti Sheet" sap:VirtualizedContainerService.HintSize="388,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Sorting Carturesti Sheet..&quot;]" />
-      <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtCarturesti]" DisplayName="Read Carturesti Sheet" sap:VirtualizedContainerService.HintSize="388,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[in_Config(&quot;Carturesti_Sheet&quot;).ToString]" WorkbookPath="[String.Format(in_Config(&quot;OutputReportPath&quot;).ToString, Date.Today.ToString(&quot;dd-MM-yyyy&quot;))]" />
-      <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="[in_Config(&quot;Carturesti_SortByColumn&quot;).ToString]" DataTable="[dtCarturesti]" DisplayName="Sort Carturesti Data Table" sap:VirtualizedContainerService.HintSize="388,112" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Ascending" OutputDataTable="[dtCarturesti]" SortOrder="Ascending" />
-      <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dtCarturesti]" DisplayName="Write Sorted Data Table to Carturesti Sheet" sap:VirtualizedContainerService.HintSize="388,139" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[in_Config(&quot;Carturesti_Sheet&quot;).ToString]" WorkbookPath="[String.Format(in_Config(&quot;OutputReportPath&quot;).ToString, Date.Today.ToString(&quot;dd-MM-yyyy&quot;))]" />
+      <ui:LogMessage DisplayName="Log Message - Sort Carturesti Sheet" sap:VirtualizedContainerService.HintSize="530,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Sorting Carturesti Sheet..&quot;]" />
+      <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtCarturesti]" DisplayName="Read Carturesti Sheet" sap:VirtualizedContainerService.HintSize="530,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[in_Config(&quot;Carturesti_Sheet&quot;).ToString]" WorkbookPath="[String.Format(in_Config(&quot;OutputReportPath&quot;).ToString, Date.Today.ToString(&quot;dd-MM-yyyy&quot;))]" />
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtCarturesti]" DisplayName="For Each Row in Carturesti Data Table" sap:VirtualizedContainerService.HintSize="530,389" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+        <ui:ForEachRow.Body>
+          <ActivityAction x:TypeArguments="sd:DataRow">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Convert The Column of Price " sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_9">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign DisplayName="Convert Price Column to Double" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_3">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Object">[CurrentRow(in_Config("Carturesti_SortByColumn").ToString)]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Object">[CDbl(CurrentRow(in_Config("Carturesti_SortByColumn").ToString))]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEachRow.Body>
+      </ui:ForEachRow>
+      <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="[in_Config(&quot;Carturesti_SortByColumn&quot;).ToString]" DataTable="[dtCarturesti]" DisplayName="Sort Carturesti Data Table" sap:VirtualizedContainerService.HintSize="530,112" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Ascending" OutputDataTable="[dtCarturesti]" SortOrder="Ascending" />
+      <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dtCarturesti]" DisplayName="Write Sorted Data Table to Carturesti Sheet" sap:VirtualizedContainerService.HintSize="530,139" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[in_Config(&quot;Carturesti_Sheet&quot;).ToString]" WorkbookPath="[String.Format(in_Config(&quot;OutputReportPath&quot;).ToString, Date.Today.ToString(&quot;dd-MM-yyyy&quot;))]" />
     </Sequence>
-    <Sequence DisplayName="Sort eMAG Sheet" sap:VirtualizedContainerService.HintSize="688,2032" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence DisplayName="Sort eMAG Sheet" sap:VirtualizedContainerService.HintSize="592,57" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="dteMAG" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:LogMessage DisplayName="Log Message - sort eMAG Sheet" sap:VirtualizedContainerService.HintSize="626,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Sorting eMAG Sheet..&quot;]" />
       <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dteMAG]" DisplayName="Read eMAG Sheet" sap:VirtualizedContainerService.HintSize="626,120" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="[in_Config(&quot;eMAG_Sheet&quot;).ToString]" WorkbookPath="[String.Format(in_Config(&quot;OutputReportPath&quot;).ToString, Date.Today.ToString(&quot;dd-MM-yyyy&quot;))]" />
-      <ui:AddDataColumn x:TypeArguments="x:Double" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" sap2010:Annotation.AnnotationText="We need this column to sort the sheet, because not all books have reviews." ColumnName="SortHelper" DataTable="[dteMAG]" DefaultValue="-1" DisplayName="Add Helper Column to eMAg Data Table" sap:VirtualizedContainerService.HintSize="626,260" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_3">
+      <ui:AddDataColumn x:TypeArguments="x:Double" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" sap2010:Annotation.AnnotationText="We need this column to sort the sheet, because not all books have reviews and the default value of this column will be -1." ColumnName="SortHelper" DataTable="[dteMAG]" DefaultValue="-1" DisplayName="Add Helper Column to eMAg Data Table" sap:VirtualizedContainerService.HintSize="626,275" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_3">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -185,12 +209,18 @@
             </Sequence>
           </ActivityAction>
         </ui:ForEachRow.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
       </ui:ForEachRow>
       <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="SortHelper" DataTable="[dteMAG]" DisplayName="Sort eMAG Data Table" sap:VirtualizedContainerService.HintSize="626,112" sap2010:WorkflowViewState.IdRef="SortDataTable_2" Order="Decending" OutputDataTable="[dteMAG]" SortOrder="Descending" />
       <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="SortHelper" DataTable="[dteMAG]" DisplayName="Remove Sorting Column " sap:VirtualizedContainerService.HintSize="626,218" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_1" />
       <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dteMAG]" DisplayName="Write Sorted Data Table To eMAG Sheet" sap:VirtualizedContainerService.HintSize="626,139" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="[in_Config(&quot;eMAG_Sheet&quot;).ToString]" WorkbookPath="[String.Format(in_Config(&quot;OutputReportPath&quot;).ToString, Date.Today.ToString(&quot;dd-MM-yyyy&quot;))]" />
     </Sequence>
-    <Sequence DisplayName="Sort Best Picks Sheet" sap:VirtualizedContainerService.HintSize="688,48" sap2010:WorkflowViewState.IdRef="Sequence_7">
+    <Sequence DisplayName="Sort Best Picks Sheet" sap:VirtualizedContainerService.HintSize="592,48" sap2010:WorkflowViewState.IdRef="Sequence_7">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="dtBestPicks" />
       </Sequence.Variables>
@@ -200,10 +230,34 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:LogMessage DisplayName="Log Message Sort Best Picks Sheet" sap:VirtualizedContainerService.HintSize="388,173" sap2010:WorkflowViewState.IdRef="LogMessage_5" Message="[&quot;Sorting Best Picks Sheet..&quot;]" />
-      <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtBestPicks]" DisplayName="Read Best Picks Sheet" sap:VirtualizedContainerService.HintSize="388,120" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="[in_Config(&quot;BestPicks_Sheet&quot;).ToString]" WorkbookPath="[String.Format(in_Config(&quot;OutputReportPath&quot;).ToString, Date.Today.ToString(&quot;dd-MM-yyyy&quot;))]" />
-      <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="[in_Config(&quot;BestPicks_SortByColumn&quot;).ToString]" DataTable="[dtBestPicks]" DisplayName="Sort Best Picks Data Table" sap:VirtualizedContainerService.HintSize="388,112" sap2010:WorkflowViewState.IdRef="SortDataTable_3" Order="Decending" OutputDataTable="[dtBestPicks]" SortOrder="Descending" />
-      <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dtBestPicks]" DisplayName="Write Best Picks DataTable to BestPicks Sheet" sap:VirtualizedContainerService.HintSize="388,139" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="[in_Config(&quot;BestPicks_Sheet&quot;).ToString]" WorkbookPath="[String.Format(in_Config(&quot;OutputReportPath&quot;).ToString, Date.Today.ToString(&quot;dd-MM-yyyy&quot;))]" />
+      <ui:LogMessage DisplayName="Log Message Sort Best Picks Sheet" sap:VirtualizedContainerService.HintSize="530,173" sap2010:WorkflowViewState.IdRef="LogMessage_5" Message="[&quot;Sorting Best Picks Sheet..&quot;]" />
+      <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtBestPicks]" DisplayName="Read Best Picks Sheet" sap:VirtualizedContainerService.HintSize="530,120" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="[in_Config(&quot;BestPicks_Sheet&quot;).ToString]" WorkbookPath="[String.Format(in_Config(&quot;OutputReportPath&quot;).ToString, Date.Today.ToString(&quot;dd-MM-yyyy&quot;))]" />
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtBestPicks]" DisplayName="For Each Row in Best Picks Data Table" sap:VirtualizedContainerService.HintSize="530,389" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+        <ui:ForEachRow.Body>
+          <ActivityAction x:TypeArguments="sd:DataRow">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Convert The Column of Price Diffrence" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign DisplayName="Convert Price Diffrence Column to Double" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Object">[CurrentRow(in_Config("BestPicks_SortByColumn").ToString)]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Object">[CDbl(CurrentRow(in_Config("BestPicks_SortByColumn").ToString))]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEachRow.Body>
+      </ui:ForEachRow>
+      <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="[in_Config(&quot;BestPicks_SortByColumn&quot;).ToString]" DataTable="[dtBestPicks]" DisplayName="Sort Best Picks Data Table" sap:VirtualizedContainerService.HintSize="530,112" sap2010:WorkflowViewState.IdRef="SortDataTable_3" Order="Decending" OutputDataTable="[dtBestPicks]" SortOrder="Descending" />
+      <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dtBestPicks]" DisplayName="Write Best Picks DataTable to BestPicks Sheet" sap:VirtualizedContainerService.HintSize="530,139" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="[in_Config(&quot;BestPicks_Sheet&quot;).ToString]" WorkbookPath="[String.Format(in_Config(&quot;OutputReportPath&quot;).ToString, Date.Today.ToString(&quot;dd-MM-yyyy&quot;))]" />
     </Sequence>
   </Sequence>
 </Activity>

@@ -102,9 +102,13 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="UpdateOutputReport" sap:VirtualizedContainerService.HintSize="930,519" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="UpdateOutputReport" sap:VirtualizedContainerService.HintSize="1116,519" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="scg:List(x:String)" Default="[new list(of String)]" Name="dataFromQueue" />
+    </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -135,35 +139,32 @@
               <av:Size x:Key="ShapeSize">110,70</av:Size>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Update Carturesti Sheet" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_1">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="scg:List(x:String)" Default="[new list(of String)]" Name="dataFromQueue" />
-            </Sequence.Variables>
+          <Sequence DisplayName="Update Carturesti Sheet" sap:VirtualizedContainerService.HintSize="512,1008" sap2010:WorkflowViewState.IdRef="Sequence_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message Update Carturesti Sheet" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Iploading current book to Carturesti sheet.&quot;]" />
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each column" sap:VirtualizedContainerService.HintSize="450,390" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_Config(&quot;CarturestiDT_Columns&quot;).ToString.Split(&quot;,&quot;c)]">
+            <ui:LogMessage DisplayName="Log Message Update Carturesti Sheet" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Uploading current book to Carturesti sheet.&quot;]" />
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each column in dtCarturesti" sap:VirtualizedContainerService.HintSize="450,390" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_Config(&quot;CarturestiDT_Columns&quot;).ToString.Split(&quot;,&quot;c)]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:String">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:String" Name="currentColumn" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,244" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence DisplayName="Add Column to List" sap:VirtualizedContainerService.HintSize="416,244" sap2010:WorkflowViewState.IdRef="Sequence_4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="354,156" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_1" ItemToAppend="[in_TransactionItem.SpecificContent(currentColumn).ToString]" List="[dataFromQueue]" />
+                    <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Add Carturesti Book details to List" sap:VirtualizedContainerService.HintSize="354,156" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_1" ItemToAppend="[in_TransactionItem.SpecificContent(currentColumn).ToString]" List="[dataFromQueue]" />
                   </Sequence>
                 </ActivityAction>
               </ui:ForEach.Body>
             </ui:ForEach>
-            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[dataFromQueue.ToArray]" DataTable="[io_dtCarturestiBooks]" DisplayName="Add Books details To Data Table" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
-            <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[io_dtCarturestiBooks]" DisplayName="Upload current book to Output Report" sap:VirtualizedContainerService.HintSize="450,139" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="[in_Config(&quot;Carturesti_Sheet&quot;).ToString]" WorkbookPath="[String.Format(in_Config(&quot;OutputReportPath&quot;).ToString,Date.Now.ToString(&quot;dd-MM-yyyy&quot;))]" />
+            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[dataFromQueue.ToArray]" DataTable="[io_dtCarturestiBooks]" DisplayName="Add Books details To Carturesti Data Table" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+            <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[io_dtCarturestiBooks]" DisplayName="Upload current book to Output Report Carturesti Sheet" sap:VirtualizedContainerService.HintSize="450,139" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="[in_Config(&quot;Carturesti_Sheet&quot;).ToString]" WorkbookPath="[String.Format(in_Config(&quot;OutputReportPath&quot;).ToString,Date.Now.ToString(&quot;dd-MM-yyyy&quot;))]" />
           </Sequence>
         </FlowStep>
       </FlowDecision.True>
@@ -189,34 +190,31 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <Sequence DisplayName="Update eMAG Sheet" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_2">
-                <Sequence.Variables>
-                  <Variable x:TypeArguments="scg:List(x:String)" Default="[new list(of string)]" Name="dataFromQueue" />
-                </Sequence.Variables>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:LogMessage DisplayName="Log Message Update eMAG Sheet" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Uploading current book to eMAG sheet.&quot;]" />
-                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each column" sap:VirtualizedContainerService.HintSize="450,390" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[in_Config(&quot;eMAGDT_Columns&quot;).ToString.Split(&quot;,&quot;c)]">
+                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each column in dtEMAG" sap:VirtualizedContainerService.HintSize="450,390" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[in_Config(&quot;eMAGDT_Columns&quot;).ToString.Split(&quot;,&quot;c)]">
                   <ui:ForEach.Body>
                     <ActivityAction x:TypeArguments="x:String">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="x:String" Name="currentColumn" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,244" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                      <Sequence DisplayName="Add Book details to dteMAG" sap:VirtualizedContainerService.HintSize="416,244" sap2010:WorkflowViewState.IdRef="Sequence_5">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Book Details to List" sap:VirtualizedContainerService.HintSize="354,156" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_2" ItemToAppend="[in_TransactionItem.SpecificContent(currentColumn).ToString]" List="[dataFromQueue]" />
+                        <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Book Details to eMAG List" sap:VirtualizedContainerService.HintSize="354,156" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_2" ItemToAppend="[in_TransactionItem.SpecificContent(currentColumn).ToString]" List="[dataFromQueue]" />
                       </Sequence>
                     </ActivityAction>
                   </ui:ForEach.Body>
                 </ui:ForEach>
-                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[dataFromQueue.ToArray]" DataTable="[io_dteMAGBooks]" DisplayName="Add Books details To Data Table" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
-                <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[io_dteMAGBooks]" DisplayName="Upload current book to Output Report" sap:VirtualizedContainerService.HintSize="450,139" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="[in_Config(&quot;eMAG_Sheet&quot;).ToString]" WorkbookPath="[String.Format(in_Config(&quot;OutputReportPath&quot;).ToString,Date.Now.ToString(&quot;dd-MM-yyyy&quot;))]" />
+                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[dataFromQueue.ToArray]" DataTable="[io_dteMAGBooks]" DisplayName="Add Books details To eMAG Data Table" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+                <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[io_dteMAGBooks]" DisplayName="Upload current book to Output Report eMAG Sheet" sap:VirtualizedContainerService.HintSize="450,139" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="[in_Config(&quot;eMAG_Sheet&quot;).ToString]" WorkbookPath="[String.Format(in_Config(&quot;OutputReportPath&quot;).ToString,Date.Now.ToString(&quot;dd-MM-yyyy&quot;))]" />
               </Sequence>
             </FlowStep>
           </FlowDecision.True>
@@ -228,20 +226,13 @@
                   <av:Size x:Key="ShapeSize">110,70</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Update BE Sheet" sap:VirtualizedContainerService.HintSize="512,1666" sap2010:WorkflowViewState.IdRef="Sequence_3">
-                <Sequence.Variables>
-                  <Variable x:TypeArguments="scg:List(x:String)" Name="dataFromQueue">
-                    <Variable.Default>
-                      <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="new List(of String)" />
-                    </Variable.Default>
-                  </Variable>
-                </Sequence.Variables>
+              <Sequence DisplayName="Update BE Sheet" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Adding current book to BE sheet in output report.&quot;]" />
+                <ui:LogMessage DisplayName="Log Message - Adding Current Book to BE sheet" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Adding current book to BE sheet in output report.&quot;]" />
                 <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each column" sap:VirtualizedContainerService.HintSize="450,390" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[in_Config(&quot;BE_DT_Columns&quot;).ToString.Replace(&quot;,Reference&quot;,&quot;&quot;).Split(&quot;,&quot;c)]">
                   <ui:ForEach.Body>
                     <ActivityAction x:TypeArguments="x:String">
