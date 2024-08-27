@@ -22,8 +22,6 @@
         "TransactionNumber&StateMachine_1",
         "Config&StateMachine_1",
         "RetryNumber&StateMachine_1",
-        "TransactionField2&StateMachine_1",
-        "TransactionField1&StateMachine_1",
         "TransactionID&StateMachine_1",
         "dt_TransactionData&StateMachine_1",
         "ConsecutiveSystemExceptions&StateMachine_1",
@@ -108,8 +106,6 @@
         "io_dteMAGBooks",
         "io_dtCarturestiBooks",
         "in_BusinessException",
-        "in_TransactionField1",
-        "in_TransactionField2",
         "in_TransactionID",
         "in_SystemException",
         "in_Config",
@@ -125,9 +121,7 @@
       "Path": "DataLayer/UpdateOutputReport.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "dataFromQueue&Sequence_3",
-        "dataFromQueue&Sequence_2",
-        "dataFromQueue&Sequence_1"
+        "dataFromQueue&Flowchart_1"
       ],
       "ArgumentsSectionElementsOrder": [
         "io_dtBEBooks",
@@ -159,8 +153,6 @@
         "in_TransactionNumber",
         "in_Config",
         "out_TransactionItem",
-        "out_TransactionField1",
-        "out_TransactionField2",
         "out_TransactionID",
         "io_dt_TransactionData"
       ],
@@ -229,16 +221,6 @@
       "AddedNamespaces": null
     },
     {
-      "Path": "DataLayer/DeleteDeletedQueueItems.xaml",
-      "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "queueItems&Sequence_1"
-      ],
-      "ArgumentsSectionElementsOrder": [],
-      "ConstantsSectionElementsOrder": [],
-      "AddedNamespaces": null
-    },
-    {
       "Path": "DataLayer/IfBooksMatch.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
@@ -278,6 +260,17 @@
         "in_ConfigSheets",
         "out_Config"
       ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/TestCase_VerifyIfPriceExceeds.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "config&Sequence_1",
+        "transactionItem&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     }
